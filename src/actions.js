@@ -35,3 +35,36 @@ export const addProduct = async function ({ name, price }) {
   await writeDbFile(productsArray);
   return product;
 };
+
+export const deleteProduct = async (id) => {
+  const productsArray = await readDbFile();
+  const productIdx = productsArray.findIndex((product) => product.id === id);
+  if (productIdx === -1) {
+    return null;
+  }
+  const [removedProduct] = productsArray.splice(productIdx, 1);
+  await writeDbFile(productsArray);
+
+  return removedProduct;
+};
+
+export const updateProduct = async (id, data) => {
+  const productsArray = await readDbFile();
+  const productIdx = productsArray.findIndex((product) => product.id === id);
+  if (productIdx === -1) {
+    return null;
+  }
+  const productUpdate = { ...productsArray[productIdx] };
+  for (const key in data) {
+    if (data[key] !== undefined) productUpdate[key] = data[key];
+  }
+
+  productsArray[productIdx] = productUpdate;
+  await writeDbFile(productsArray);
+
+  return productUpdate;
+};
+
+export const getAllProducts = async () => {
+  return readDbFile();
+};
