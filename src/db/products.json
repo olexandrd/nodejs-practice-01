@@ -67,14 +67,8 @@
   },
   {
     "id": "958ae9382d4",
-    "name": "ololo",
-    "price": 1000.1,
-    "discount": 0
-  },
-  {
-    "id": "898fbde1306",
-    "name": "ololo",
-    "price": 10.1,
-    "discount": 0
+    "name": "updated4",
+    "discount": 0.5,
+    "price": 0.59
   }
 ]
