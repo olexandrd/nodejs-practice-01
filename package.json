@@ -20,6 +20,7 @@
   "homepage": "https://github.com/olexandrd/nodejs-practice-01#readme",
   "dependencies": {
     "commander": "^13.1.0",
+    "joi": "^17.13.3",
     "uid": "^2.0.2"
   }
 }

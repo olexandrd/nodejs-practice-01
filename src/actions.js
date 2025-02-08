@@ -68,3 +68,16 @@ export const updateProduct = async (id, data) => {
 export const getAllProducts = async () => {
   return readDbFile();
 };
+
+export const filterProductsByName = async ({name = '', discount}) => {
+  const productsArray = await readDbFile();
+  name = name.toLowerCase();
+  discount = discount !== undefined ? parseFloat(discount) : discount
+  return productsArray.filter((elm) => name && discount !== undefined
+      ? elm['name'].toLowerCase().includes(name) || elm['discount'] === discount
+      : discount !== undefined
+          ? elm['discount'] === discount
+          : name
+              ? elm['name'].toLowerCase().includes(name)
+              : null)
+}

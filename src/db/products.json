@@ -67,8 +67,32 @@
   },
   {
     "id": "958ae9382d4",
-    "name": "updated4",
-    "discount": 0.1,
-    "price": 0.5
+    "name": "ololo",
+    "price": 1000.1,
+    "discount": 0
+  },
+  {
+    "id": "898fbde1306",
+    "name": "ololo",
+    "price": 10.1,
+    "discount": 0
+  },
+  {
+    "id": "f3c58e5f207",
+    "name": "eee",
+    "price": 125.32,
+    "discount": 0.5
+  },
+  {
+    "id": "50e46fa931c",
+    "name": "Apple Iphone 18",
+    "price": 777.8,
+    "discount": 0
+  },
+  {
+    "id": "efcdad952da",
+    "name": "Apple Iphone 18",
+    "price": 777.8,
+    "discount": 0
   }
 ]
