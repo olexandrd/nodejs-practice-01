@@ -24,8 +24,8 @@ async function invokeAction({ action, id, name, price, discount }) {
     case "update":
       const updatedProduct = await updateProduct(id, {
         name,
-        price,
-        discount,
+        price: price && parseFloat(price),
+        discount: discount && parseFloat(discount),
       });
       console.table(updatedProduct);
       break;

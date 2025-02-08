@@ -48,16 +48,16 @@ export const deleteProduct = async (id) => {
   return removedProduct;
 };
 
-export const updateProduct = async (id, { name, price, discount }) => {
+export const updateProduct = async (id, data) => {
   const productsArray = await readDbFile();
   const productIdx = productsArray.findIndex((product) => product.id === id);
   if (productIdx === -1) {
     return null;
   }
   const productUpdate = { ...productsArray[productIdx] };
-  if (name) productUpdate["name"] = name;
-  if (price) productUpdate["price"] = parseFloat(price);
-  if (discount) productUpdate["discount"] = parseFloat(discount);
+  for (const key in data) {
+    if (data[key] !== undefined) productUpdate[key] = data[key];
+  }
 
   productsArray[productIdx] = productUpdate;
   await writeDbFile(productsArray);
