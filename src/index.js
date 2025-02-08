@@ -1,5 +1,10 @@
 import { program } from "commander";
-import { addProduct, deleteProduct, updateProduct } from "./actions.js";
+import {
+  addProduct,
+  deleteProduct,
+  getAllProducts,
+  updateProduct,
+} from "./actions.js";
 
 program
   .option("--action, -a <action>", "Action")
@@ -28,6 +33,10 @@ async function invokeAction({ action, id, name, price, discount }) {
         discount: discount && parseFloat(discount),
       });
       console.table(updatedProduct);
+      break;
+    case "getAll":
+      const allProducts = await getAllProducts();
+      console.table(allProducts);
       break;
     default:
       console.log(options);

@@ -64,3 +64,7 @@ export const updateProduct = async (id, data) => {
 
   return productUpdate;
 };
+
+export const getAllProducts = async () => {
+  return readDbFile();
+};
